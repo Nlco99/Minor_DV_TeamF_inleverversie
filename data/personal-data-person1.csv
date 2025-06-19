@@ -1,0 +1,15 @@
+﻿ID1;;Test datum;31-5-2024;Barometrische druk (mmHg);755
+Achternaam;Janssen;Test tijd;11:14:51;Ambient temperatuur (°C);20
+Voornaam;Piet;Type Persoon;Gezond;Ambient relatieve luchtvochtigheid (%);53
+Geslacht;Man;ECG respons;Geen;Temperatuur bij Flowmeter (°C);34
+Leeftijd;30;Reden voor test;Geen;Relatieve Luchtvochtigheid bij Flowmeter (%);100
+Lengte (cm);170;Stopreden;Geen;STPD;0,8204
+Gewicht (kg);65;Test doel;Geen;BTPS Ins;1,1144
+Geboortedatum;1-1-1994;Soort test;Maximaal;BTPS Exp;1,0199
+;;Maximale inspanning;Niet bevestigd;# stappen;301
+;;Test duur;25:05:00;BSA (m2);1,685004035
+;;Inspanningsduur;21:00;BMI (kg/m2);21,9
+;;HR bron;HR-70EC6A4E;HR Max;192
+;;Protocol;23-05-2024M1;Gebruiker 1;-
+;;Ergometer;COSMED Bike;Gebruiker 2;-
+;;;;Gebruiker 3;-

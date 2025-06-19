@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashCycle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- D3.js CDN -->
+    <script src="https://d3js.org/d3.v7.min.js"></script> 
+    <!--Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+    <!-- Include Papa Parse library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+     <!-- Color Scale -->
+     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <ul>
+                <li class="profile">
+                    <span class="icon"><i class="bi bi-person-circle"></i></span>
+                </li>
+                <!-- Divider-->
+                <li class="divider"></li>
+
+                <li class="overview" onclick="showSection('overview')">
+                    <span class="icon"><i class="bi bi-clipboard-data"></i></span>
+                </li>
+                
+                <li class="analysis" onclick="showSection('analysis')">
+                    <span class="icon"><i class="bi bi-graph-up"></i></span>
+                </li>
+                <!-- Divider-->
+                <li class="divider"></li>          
+                <li class="settings">
+                    <span class="icon"><i class="bi bi-gear-fill"></i></span>
+                </li>
+                
+                <li class="sign-out">
+                    <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+                </li>
+            </ul>
+        </div>
+
+         <!-- Main content -->
+         <div id="main">
+            <!-- Content sections -->
+            <div class="content">
+                <!-- Overview section -->
+                 <!-- "section active => first page thats visible when opening the application" -->
+                <div id="overview" class="section active">
+                    <h2>Hallo, John</h2>
+                    <p>Your Data, Your Ride, Your Progress</p>
+
+                    <div class="zoom-dropdown">
+                        <button class="dropbtn" id="zoomLevelButton">Tijd <i class="bi bi-plus-slash-minus plus-min-icon"></i></button>
+                        <div class="zoom-dropdown-content">
+                            <a href="#" id="zoomLevel1">1min</a>
+                            <a href="#" id="zoomLevel2">5min</a>
+                            <a href="#" id="zoomLevel3">10min</a>
+                            <a href="#" id="zoomLevel4">Alle datapunten</a>
+                        </div>
+                    </div>
+
+                    <!-- Max prestatie card-->
+                    <div id="max-prestatie" class="card">
+                        <div class="header">
+                            <i class="bi bi-star-fill star-icon"></i><h4>MAXIMALE Prestatie</h4>
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    31 mei 2024  <span class="icon"><i class="bi bi-calendar2 calendar-icon"></i></span>
+                                </button>
+
+                                <div class="dropdown-content">
+                                    <a href="#" id="session31Mei24">31 Mei '24</a>
+                                    <a href="#" id="session28Jan24">28 Jan '24</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <hr>
+                        <br>
+                        <br>
+                        <p class="divider"></p>
+
+                        <!-- Max values-->
+                        <div class="max-values">
+                            <div class="max-value">
+                                <p class="max-titles"><small>Lactaat</small></p>
+                                <p><h2><strong>
+                                    <span id="lactaat-value"></span></strong>
+                                    <span class="unit">mmol/L</span>
+                                </h2></p>
+                            </div>
+                            
+                            <div class="max-value">
+                                <p class="max-titles"><small>HR</small></p>
+                                <p><h2>
+                                    <strong><span id="hr-value"></span></strong>
+                                    <span class="unit">bpmn</span>
+                                </h2></p>
+                            </div>
+                            <div class="max-value">
+                                <p class="max-titles"><small>Power</small></p>
+                                <p><h2>
+                                    <strong><span id="power-value"></span></strong>
+                                    <span class="unit">Watt</span>
+                                </h2></p>
+                            </div>
+                            <div class="max-value">
+                                <p class="max-titles"><small>VO2</small></p>
+                                <p><h2><strong>
+                                    <span id="vo2-value"></span></strong>
+                                    <span class="unit">mL/min</span>
+                                </h2></p>
+                            </div>
+                        </div>
+                        <p class="divider"></p>
+                        <!-- <br>
+                        <div class="average-values">
+                            <p><strong><i>AVERAGE and or MIN results</i></strong></p>
+                            <p><i>HR</i></p>
+                            <p><i>Power</i></p>
+                            <p><i>VO2</i></p>
+                        </div> -->
+                        <!-- <br>
+                        <p class="divider"></p> -->
+                    </div>
+                    
+                    
+
+                    <!-- waardes moet nog gefetched worden -->
+                    <!-- <div id="legendaPrestatie" class="card">
+                        <h6>Prestatie zones</h6>
+                        <div class="ERGLICHT">
+                            <p><strong>ERG LICHT</strong></p>
+                            <p class="hr">Hartslag: 67-108 bpm</p>
+                            <p class="power">Power: 0-80 W</p>
+                        </div>
+                        <br>
+                        <div class="LICHTLA">
+                            <p>LICHT LA</p>
+                            <p class="hr">Hartslag: 108-140 bpm</p>
+                            <p class="power">Power: 80-140 W</p>
+                        </div>
+                        <br>
+                        <div class="MATIG">
+                            <p>MATIG</p>
+                            <p class="hr">Hartslag: 140-158 bpmn</p>
+                            <p class="power">Power: 140-160 W</p>
+                        </div>
+                        <br>
+                        <div class="ZWAAR">
+                            <p>ZWAAR</p>
+                            <p class="hr">Hartslag: 158-178 bpm</p>
+                            <p class="power">Power: 160-200 W</p>
+                        </div>
+                        <br>
+                        <div class="MAX">
+                            <p>MAX</p>
+                            <p class="hr">Hartslag: 178-186 bpm</p>
+                            <p class="power">Power: 200-240 W</p>
+                        </div> 
+                    </div>  -->
+
+                    <!-------------------------------------------------->
+                    <!-- GRAPHS -->
+                    <div id="linegraph-HR-Power">
+                        <!-- <h4>HR vs Power</h4> -->
+                    </div>
+
+                    <div id="linegraph-Rf-VT">
+                        <!-- <h4>Rf vs VT</h4> -->
+                    </div>
+
+                    <div id="barchart-VO2-VCO2">
+                        <!-- <h5>VO2 vs VCO2</h5> -->
+                    </div>
+
+                    <div id="difference-barchart-VO2-VCO2">
+                        <!-- Difference VO2-VCO2-->
+                    </div>
+                    <!------------------------------------------------->
+                    <!-- <div id="linegraph-HR-Power-Old"></div> -->
+                    <!------------------------------------------------->
+
+                    <div id="athleteInfo" class="card">
+                        <div class="header">
+                            <span><i class="bi bi-card-text card-icon"></i><h4>Persoonlijke sessie-gegevens</h4></span>
+                        </div>
+                        <br>
+                        <hr>
+                        <br>
+                        <p id="leeftijd-value"></p>
+                        <p id="lengte-value"></p>
+                        <p id="gewicht-value"></p>
+                        <br>
+                        <hr>
+                        <br>
+                        <p id="testduur-value"></p>
+                        <p id="testtijd-value"></p>
+                        <p id="ergometer-value"></p>
+                    </div>
+
+
+                </div>
+                <div id="analysis" class="section">
+                        <h3>Analysis page</h3>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

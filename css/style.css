@@ -1,0 +1,405 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* General styles */
+body {
+    font-family: monospace;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* background-color: rgb(69, 60, 112, 0.5); */
+
+    /*top left to bottom right*/
+    /* background: linear-gradient(to bottom right, rgb(69, 60, 112), rgba(69, 60, 112, 0.5)); */
+
+    /*left to right*/
+    background: linear-gradient(to right, rgb(69, 60, 112, 0.7), rgba(69, 60, 112, 0.5));
+    
+}
+.container {
+    display: flex;
+    width: 100%;
+}
+
+
+
+/* Sidebar */
+#sidebar {
+    width: 70px;
+    background-color: rgb(69, 60, 112, 0.8);
+    color: white;
+    height: 100vh;
+    padding-top: 20px;
+    margin-left: 0px;
+    margin-top: 0px;
+    border-radius: 0px;
+}
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.divider {
+    border-top: 1px solid white;
+}
+
+#sidebar ul li:hover {
+    cursor: pointer;
+    color: darkorange;
+}
+
+#sidebar ul li .icon {
+    padding-left: 10px;
+}
+
+.profile {
+    margin-bottom: 20px; 
+}
+
+.overview {
+    margin-bottom: 20px;
+}
+
+.analysis {
+    margin-bottom: 320px;
+}
+
+.sign-out {
+    margin-top: 10px;
+}
+
+.icon-class {
+    width: 35px; 
+    height: 35px;
+    vertical-align: middle; 
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+
+/* Main content styles */
+#main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Content sections */
+.content {
+    padding: 20px;
+}
+.section {
+    display: none;
+}
+.section.active {
+    display: block;
+}
+/*Max prestatie */
+#max-prestatie.card {
+    position: absolute;
+    top: 15px;
+    right: 315px;
+    padding: 10px;
+    background-color: white;
+    border: 3px solid #303030;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 420px;
+    height: 250px;
+}
+
+#max-prestatie .max-titles {
+    color:#767474;
+}
+.unit {
+    font-weight: normal;
+    font-size: 0.5em; /* Adjust the size as needed */
+    margin-left: 0px; /* Add some space between the value and the unit */
+    color: #424242;
+}
+
+#max-prestatie .max-values {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#max-prestatie .max-value {
+    flex: 1;
+    text-align: left;
+    margin: 0 5px;
+}
+
+/* Dropdown Button */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropbtn {
+    background-color: #e8eaeb;
+    color: black;
+    padding: 5px 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Add border radius to button */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the text */
+    width: 150px; /* Set a fixed width */
+}
+
+.dropbtn .icon {
+    margin-left: 5px;
+}
+
+/* General styles for dropdowns */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+}
+
+.dropdown-content a:hover {
+    background-color: #d8d7d7;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #ffcfa0;
+}
+
+/* Specific styles for zoom level dropdown */
+.zoom-dropdown {
+    position: absolute; /* Use absolute positioning */
+    top: 215px; /* Adjust the top position as needed */
+    right: 330px; /* Adjust the right position as needed */
+    z-index: 1;
+}
+
+.zoom-dropdown .dropbtn {
+    background-color: #e8eaeb;
+    color: black;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    height: 40px; /* Set a fixed height */
+    width: 150px; /* Set a fixed width */
+    justify-content: space-between; /* Ensure content is spaced out */
+}
+
+.zoom-dropdown .dropbtn i {
+    margin-left: 5px;
+}
+
+.zoom-dropdown .zoom-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.zoom-dropdown .zoom-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+}
+
+.zoom-dropdown .zoom-dropdown-content a:hover {
+    background-color: #d8d7d7;
+}
+
+.zoom-dropdown:hover .zoom-dropdown-content {
+    display: block;
+}
+
+.zoom-dropdown:hover .dropbtn {
+    background-color: #ffcfa0;
+}
+
+
+/*Bar chart */
+#barchart-VO2-VCO2 {
+    position: absolute;
+    bottom: 230px; 
+    right: 20px;
+    border-top: 25px solid #303030;
+    border-right: 30px solid #303030;
+    border-left: 25px solid #303030;
+    border-bottom: none; /* Remove the border on the bottom */
+    padding: 5px;
+    background-color: white;
+    border-radius: 13px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.barVO2:hover {
+    stroke: black;
+    cursor: pointer;
+}
+.barVCO2:hover {
+    stroke: black;
+    cursor: pointer;
+}
+/*difference-barchart-VO2-VCO2*/
+#difference-barchart-VO2-VCO2 {
+    position: absolute;
+    bottom: 7px; 
+    right: 20px;
+    border-top: none;
+    border-bottom: 25px solid #303030;
+    border-right: 30px solid #303030;
+    border-left: 25px solid #303030;
+    padding: 5px;
+    background-color: white;
+    border-radius: 13px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.barDifference:hover {
+    stroke: black;
+    cursor: pointer;
+}
+
+/*linegraph-HR-Power */
+#linegraph-HR-Power {
+    position: relative;
+    top: 5px; 
+    left: -16px;
+    border: 25px solid #303030;
+    padding: 10px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 700px; 
+}
+/*Hover interaction*/
+.dotHR:hover {
+    stroke: black;
+    cursor: pointer;
+}
+.dotPower:hover {
+    stroke: black;
+    cursor: pointer;
+}
+.icon-heart {
+    color: red; 
+    font-size: 20px; 
+}
+.icon-power {
+    color: #b8b800; 
+    font-size: 20px; 
+}
+.icon-lung-linechart {
+    color: rgb(66, 66, 255); 
+    font-size: 22px; 
+}
+.icon-lung-barchart {
+    color: rgb(66, 66, 255); 
+    font-size: 22px; 
+}
+.card-icon {
+    font-size: 25px;
+}
+.star-icon {
+    color: gold;
+    font-size: 30px;
+}
+.plus-min-icon{
+    font-size: 25px;
+}
+.calendar-icon {
+    font-size: 25px;
+}
+
+/*-------------------------------*/
+#linegraph-Rf-VT {
+    position: relative;
+    bottom: -10px; 
+    left: -16px;
+    border: 25px solid #303030;
+    padding: 10px;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 700px; 
+}
+/*Hover interaction */
+.dotVT:hover {
+    stroke: black;
+    cursor: pointer;
+}
+.dotRf:hover {
+    stroke: black;
+    cursor: pointer;
+}
+
+#athleteInfo.card {
+    position: absolute;
+    top: 13px;
+    height: 250px;
+    right: 25px;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    background-color: #ffffff;
+    border: 3px solid #303030;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+}
+
+/*-------------------------------*/
+/* #linegraph-HR-Power-Old {
+    width: 700px;
+    height: 300px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+} */
